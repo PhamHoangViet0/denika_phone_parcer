@@ -80,10 +80,6 @@ def get_info(url, headers, page_count):
             else:
                 cpu_cores = cpu_cores_tag.nextSibling.nextSibling.find('a').get_text()
 
-            # .nextSibling.find('a').get_text()
-            # print(brand, '\n-------------------------\n')
-            # if len(items) == 0:
-            #     print(soup_from_phone)
             info = {
                 'name': name,
                 'code': code,
@@ -111,13 +107,9 @@ def get_info(url, headers, page_count):
             break
         html = get_html(next_page_tag.get('href'), headers)
 
-    # for item in items:
-    #     print(item)
-    # print(len(items))
     return items
 
 
-# print(get_html(URL, HEADERS))
 data = get_info(URL, HEADERS, 10)
 
 data_file = open("data.json", "w")
